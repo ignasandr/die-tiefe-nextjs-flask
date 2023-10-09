@@ -9,16 +9,15 @@ def get_data():
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
 
-    remote_url = "https://selenium.kmn.lt"
+    remote_url = "https://bot.kmn.lt"
 
     driver = webdriver.Remote(
         command_executor=remote_url,
         options=options
     )
     driver.get("https://www.libib.com/u/kmnskaitykla")
-    # driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
-    first_position = driver.execute_script("return document.body.scrollHeight")
-    time.sleep(3)
+
+    time.sleep(3)  # replace with WebDriverWait
 
     page_title = driver.title
     published_count = int(driver.find_element(
